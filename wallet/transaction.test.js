@@ -12,13 +12,17 @@ describe('Transaction', () => {
     });
 
     it('outputs the `amount` subtracted from the wallet balance', () => {
-        expect(transaction.outputs.find(output => output.address == wallet.publicKey).amount)
+        expect(transaction.outputs.find(output => output.address === wallet.publicKey).amount)
         .toEqual(wallet.balance - amount);
     });
 
     it('outputs the `amount` added from the wallet balance', () => {
         expect(transaction.outputs.find(output => output.address === receipient).amount)
         .toEqual(amount);
+    });
+
+    it('inputs the balance of the wallet', () => {
+        expect(transaction.input.amount).toEqual(wallet.balance);
     });
 
     describe('transacting with an amount that exceeds the balance', () => {
