@@ -30,7 +30,7 @@
                 return;
             }
 
-            if(!TransactionPool.verifyTranscation(transaction)) {
+            if(!Transaction.verifyTransaction(transaction)) {
                 console.log(`Invalid signature from ${transaction.input.address}.`);
                 return;
             }
