@@ -79,7 +79,7 @@ class P2pServer {
     }
 
     broadcastTransaction(transaction) {
-        this.sockets.forEach(socket => this.sendTransaction(socket));
+        this.sockets.forEach(socket => this.sendTransaction(socket, transaction));
     }
 
     broadcastClearTransactions() {
