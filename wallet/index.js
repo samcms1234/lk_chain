@@ -56,7 +56,7 @@ class Wallet {
             (prev, current) => prev.input.timestamp > current.input.timestamp ? prev : current
         );
 
-        balance = recentInputT.outputs.find(Output => output.address === this.publicKey).amount;
+        balance = recentInputT.outputs.find(output => output.address === this.publicKey).amount;
         startTime = recentInputT.input.timestamp;
         }
 
@@ -68,7 +68,9 @@ class Wallet {
                     }
                 });
             }
-        })
+        });
+
+        return balance;
     }
 
     static blockchainWallet() {
